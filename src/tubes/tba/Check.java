@@ -64,24 +64,31 @@ public class Check {
                 if (!CheckKrg(S[j].charAt(0))){
                     if (CheckNum(S[j])) {
                         num++;
+                        if (j < i-1 && CheckNum(S[j+1])){
+                            return false;
+                        }
                     }
                     if (CheckOpr(S[j])) {
                         opr++;
                     }
                 } else {
-                    
                     if (S[j].equals("(")){
                         kurb++;
-                        if (j < i-1 && CheckOpr(S[j])){
+                        if (j < i-1 && CheckOpr(S[j+1])){
+                            return false;
+                        }
+                        if (j > 1 && CheckNum(S[j-1])){
                             return false;
                         }
                     } else {
                         kurt++;
-                        if (j < i-1 && CheckNum(S[j])){
+                        if (j < i-1 && CheckNum(S[j+1])){
+                            return false;
+                        }
+                        if (j > 1 && CheckOpr(S[j-1])){
                             return false;
                         }
                     }
-                    
                 }
             }
         }
