@@ -318,14 +318,11 @@ public class Main extends javax.swing.JFrame {
         
         //End Output Layout
         
+        if (C.CheckValid(SS,j)){
+            tOutput.setText("Valid");
+        }
         
-        //C.CheckValid(SS);
         
-        /*if (C.CheckValid(SS)){
-            System.out.println("Valid");
-        } else {
-            System.out.println("Tidak Valid");
-        }*/
     }//GEN-LAST:event_jOutputMouseClicked
 
     private void jStringMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jStringMouseClicked

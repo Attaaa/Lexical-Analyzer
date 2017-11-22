@@ -52,31 +52,48 @@ public class Check {
         }
     }
     
-    /*public boolean CheckValid(String[] S){
+    public boolean CheckValid(String[] S, int i){
+        int opr = 0;
+        int num = 0;
         int kurb = 0;
         int kurt = 0;
-        int opr = 0; 
-        int num = 0;
+        int j = 0;
         
-        for (int x = 0; x < S.length; x++) {
-            if (S[x] == "Kurung buka"){
-                kurb++;
-            } else if (S[x] == "Operator"){
-                opr++;
-            } else if (S[x] == "Number") {
-                num++;
-            } else {
-                kurt++;
+        if (!CheckOpr(S[j]) && !CheckOpr(S[i-1])) {
+            for (j = 0; j < i; j++) {
+                if (!CheckKrg(S[j].charAt(0))){
+                    if (CheckNum(S[j])) {
+                        num++;
+                    }
+                    if (CheckOpr(S[j])) {
+                        opr++;
+                    }
+                } else {
+                    
+                    if (S[j].equals("(")){
+                        kurb++;
+                        if (j < i-1 && CheckOpr(S[j])){
+                            return false;
+                        }
+                    } else {
+                        kurt++;
+                        if (j < i-1 && CheckNum(S[j])){
+                            return false;
+                        }
+                    }
+                    
+                }
             }
         }
         
-        
-        if ((num/opr == 2) && (num%2 == 0)){
-            return true;
-        } else {
-            return false;
+        if (num >= 1 && opr == num-1){
+            if (kurb == kurt){
+                return true;
+            }
         }
-    }*/
+        
+        return false;
+    }
     
     
     
