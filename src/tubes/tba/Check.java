@@ -67,11 +67,12 @@ public class Check {
                         if (j < i-1 && CheckNum(S[j+1])){
                             return false;
                         }
-                    }
-                    if (CheckOpr(S[j])) {
+                    } else if (CheckOpr(S[j])) {
                         opr++;
+                    } else {
+                        return false;
                     }
-                } else {
+                } else  {
                     if (S[j].equals("(")){
                         kurb++;
                         if (j < i-1 && CheckOpr(S[j+1])){
@@ -92,16 +93,11 @@ public class Check {
                 }
             }
         }
-        
         if (num >= 1 && opr == num-1){
             if (kurb == kurt){
                 return true;
             }
         }
-        
         return false;
     }
-    
-    
-    
 }
