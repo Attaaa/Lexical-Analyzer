@@ -14,10 +14,6 @@ import tubes.tba.view.*;
  * @author Atta
  */
 public class TubesTBA {
-
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         Main L = new Main();
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
